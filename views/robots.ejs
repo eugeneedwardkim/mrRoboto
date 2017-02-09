@@ -1,0 +1,25 @@
+<html>
+<head>
+<% include ./partials/head %>
+</head>
+<body>
+<% include ./partials/nav %>
+    <h1>Robot War Time</h1>
+        <form action= "/robots" method="POST">
+            <input placeholder = "Robot Type" name = "type"/>
+            <input placeholder = "Robot Description" name = "description" />
+            <input placeholder = "Robot's Special Move" name = "special" />
+            <button type = "button" class = "btn">Cancel</button>
+            <button class ="btn">Make Robot</button>
+        <ul>
+            <% robots.forEach( function(robot){%>
+                <li>
+                    <a href = <%= '/robots/' + robot.id %> >
+                    <%= robot.type %>
+                    <%= robot.description %>
+                    </a>
+                </li>
+            <% }) %>
+           </ul>
+    </body>
+</html>
